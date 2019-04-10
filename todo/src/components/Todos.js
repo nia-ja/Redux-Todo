@@ -20,15 +20,19 @@ class Todos extends React.Component {
     render(props) {
         return (
             <div className='todos'>
-                <form onSubmit={this.addTodo}>
-                    <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo'/>
-                    <button>Add Todo</button>
-                </form>
-                {this.props.todos.map((todo, index) => (
-                    <div className='todo-list'>
+                <header>
+                    <h1>REDUX <span>TODO</span></h1>
+                    <form onSubmit={this.addTodo}>
+                        <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo'/>
+                        <button>Add</button>
+                    </form>
+                </header>
+                <div className='todo-list'>
+                    {/* <h2>Your todos:</h2> */}
+                    {this.props.todos.map((todo, index) => (
                         <Todo todo={todo} key={index} />
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         );
     }

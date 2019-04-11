@@ -99,6 +99,18 @@ form button:focus {
 .todo-bullet {
   margin-right: 15px;
 }
+.todo-bullet-completed {
+  margin-right: 15px;
+  color: rgb(110, 110, 110);
+}
+.todo-text {
+  text-decoration: none;
+  color: white; 
+}
+.todo-text-completed {
+  color: rgb(110, 110, 110);
+  text-decoration: line-through; 
+}
 .todo-text:hover {
   cursor: pointer;
   color: rgb(173, 173, 173);

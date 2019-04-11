@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
 }
+
+/*BACKGROUND*/
 body {
   margin: 0;
   padding: 0;
@@ -18,14 +20,11 @@ body {
   background-color:#282828;
   background-size:16px 16px;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+/*MAIN CONTAINER*/
 .todos {
   width: 100%;
 }
+/*HEADER styling*/
 header {
   padding: 20px 40px;
   background: #282828;
@@ -33,6 +32,8 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+/*NAME styling*/
 header h1 {
   color: white;
   font-size: 50px;
@@ -41,10 +42,13 @@ header h1 {
 header h1 span {
   color: crimson;
 }
+
+/*FORM styling*/
 header form {
   width: 40%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 form input {
   width: 70%;
@@ -64,7 +68,6 @@ form button {
   color: #282828;
   border: none;
   border-radius: 20px;
-  /* text-transform: uppercase; */
   font-weight: bold;
   cursor: pointer;
 }
@@ -75,6 +78,8 @@ form button:hover {
 form button:focus {
   outline: none;
 }
+
+/*TODOS styling*/
 .todos .todo-list {
   width: 40%;
   margin: 30px auto 0 auto;
@@ -118,4 +123,28 @@ form button:focus {
 .todo p:hover {
   cursor: pointer;
   color: crimson;
+}
+
+@media (max-width: 1000px) {
+  .todos .todo-list {
+    width: 60%;
+  }
+}
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  header h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  header form, h1 {
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .todos .todo-list {
+    width: 80%;
+  }
 }

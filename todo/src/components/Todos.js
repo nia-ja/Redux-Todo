@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from '../actions';
+import { addTodo, toggleTodo } from '../actions';
 
 import Todo from './Todo';
 
@@ -11,12 +11,13 @@ class Todos extends React.Component {
     };
     addTodo = e => {
         e.preventDefault();
-        this.props.addTodo(this.state.todoValue);
-        this.setState({ todoValue: '' });
+        if(this.state.todoValue !== '') {
+            this.props.addTodo(this.state.todoValue);
+            this.setState({ todoValue: '' });
+        }
     }
-
     handleChanges = e => this.setState({ todoValue: e.target.value });
-
+   
     render(props) {
         return (
             <div className='todos'>
@@ -28,9 +29,8 @@ class Todos extends React.Component {
                     </form>
                 </header>
                 <div className='todo-list'>
-                    {/* <h2>Your todos:</h2> */}
-                    {this.props.todos.map((todo, index) => (
-                        <Todo todo={todo} key={index} />
+                    {this.props.todos.map((todo) => (
+                        <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} />
                     ))}
                 </div>
             </div>
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addTodo })(Todos);
+export default connect(mapStateToProps, { addTodo, toggleTodo })(Todos);

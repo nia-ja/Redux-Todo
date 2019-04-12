@@ -8,7 +8,8 @@ import Todo from './Todo';
 class Todos extends React.Component {
     state = {
         todoValue: '',
-        filter: false
+        filter: false,
+        todos: []
     };
     addTodo = e => {
         e.preventDefault();
@@ -22,9 +23,11 @@ class Todos extends React.Component {
         e.preventDefault();
         this.setState({ filter: !this.state.filter });
     }
+    onClickHandler = (value) => {
+        console.log(value);
+    }
    
     render(props) {
-        console.log(this.state.filter);
         return (
             <div className='todos'>
                 <header>
@@ -37,9 +40,13 @@ class Todos extends React.Component {
 
                 <div className="filters">
                     <button className='btn' onClick={this.toggleFilters}>Filter</button>
-                    {this.state.filter &&  <button className="btn choose-filter">ALL</button>}
-                    {this.state.filter && <button className="btn choose-filter">COMPLETED</button>}
-                    {this.state.filter &&  <button className="btn choose-filter">ACTIVE</button> }
+                    { this.state.filter && 
+                        <div className='filters-options'>
+                            <button className="btn choose-filter" onClick={() => this.onClickHandler('all')}>ALL</button>
+                            <button className="btn choose-filter" onClick={() => this.onClickHandler('completed')}>COMPLETED</button>
+                            <button className="btn choose-filter" onClick={() => this.onClickHandler('active')}>ACTIVE</button>
+                        </div>
+                    }
                 </div>
                 
                 <div className='todo-list'>
@@ -51,7 +58,7 @@ class Todos extends React.Component {
             </div>
         );
     }
-};
+}
 
 const mapStateToProps = state => {
     return {

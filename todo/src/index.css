@@ -82,17 +82,24 @@ form input:focus {
 
 /*FILTERS*/
 .filters {
-  width: 90%;
+  width: 50%;
   margin: 15px auto;
   display: flex;
 }
 .filters .btn {
   margin-right: 15px;
 }
+.filters-options {
+  display: flex;
+}
+.choose-filter {
+  background: rgb(110, 110, 110);
+  color: white;
+}
 
 /*TODOS styling*/
 .todos .todo-list {
-  width: 40%;
+  width: 50%;
   margin: 30px auto 0 auto;
 
 }
@@ -156,7 +163,10 @@ form input:focus {
 
 @media (max-width: 1000px) {
   .todos .todo-list {
-    width: 60%;
+    width: 70%;
+  }
+  .filters {
+    width: 70%;
   }
 }
 @media (max-width: 800px) {
@@ -175,6 +185,14 @@ form input:focus {
 @media (max-width: 650px) {
   .todos .todo-list {
     width: 80%;
+  }
+  .filters {
+    flex-direction: column;
+    width: 80%;
+  }
+  .filters > .btn {
+    width: 25%;
+    margin-bottom: 15px;
   }
 }
 

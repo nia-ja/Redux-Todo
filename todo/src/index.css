@@ -23,6 +23,7 @@ body {
 /*MAIN CONTAINER*/
 .todos {
   width: 100%;
+  padding-bottom: 50px;
 }
 /*HEADER styling*/
 header {

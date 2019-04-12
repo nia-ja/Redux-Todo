@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo, toggleTodo } from '../actions';
+import { addTodo, toggleTodo, deleteTodo } from '../actions';
 
 import Todo from './Todo';
 
@@ -30,7 +30,7 @@ class Todos extends React.Component {
                 </header>
                 <div className='todo-list'>
                     {this.props.todos.map((todo) => (
-                        <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} />
+                        <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />
                     ))}
                 </div>
             </div>
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addTodo, toggleTodo })(Todos);
+export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo })(Todos);

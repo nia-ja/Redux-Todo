@@ -38,7 +38,7 @@ class Todos extends React.Component {
                     </form>
                 </header>
 
-                <div className="filters">
+                <div className={this.props.todos.length > 0 ? 'filters' : 'filters-no-todo'}>
                     <button className='btn' onClick={this.toggleFilters}>Filter</button>
                     { this.state.filter && 
                         <div className='filters-options'>

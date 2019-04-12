@@ -61,7 +61,8 @@ form input {
 form input:focus {
   outline: none;
 }
-form button {
+.btn {
+  display: block;
   padding: 7px 20px;
   font-size: 18px;
   background: crimson;
@@ -71,11 +72,11 @@ form button {
   font-weight: bold;
   cursor: pointer;
 }
-form button:hover {
+.btn:hover {
   background: white;
   color: crimson;
 }
-form button:focus {
+.btn:focus {
   outline: none;
 }
 
@@ -99,6 +100,7 @@ form button:focus {
 }
 .todo-content {
   display: flex;
+  width: 90%;
   align-items: center;
 }
 .todo-bullet {
@@ -123,6 +125,13 @@ form button:focus {
 .todo p:hover {
   cursor: pointer;
   color: crimson;
+}
+/*Clear completed button*/
+.todos button {
+  margin: 30px auto 0 auto;
+}
+.btn-hidden {
+  display: none;
 }
 
 @media (max-width: 1000px) {

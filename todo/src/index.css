@@ -80,6 +80,16 @@ form input:focus {
   outline: none;
 }
 
+/*FILTERS*/
+.filters {
+  width: 90%;
+  margin: 15px auto;
+  display: flex;
+}
+.filters .btn {
+  margin-right: 15px;
+}
+
 /*TODOS styling*/
 .todos .todo-list {
   width: 40%;

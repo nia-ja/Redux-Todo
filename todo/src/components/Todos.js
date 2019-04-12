@@ -7,7 +7,8 @@ import Todo from './Todo';
 
 class Todos extends React.Component {
     state = {
-        todoValue: ''
+        todoValue: '',
+        filter: false
     };
     addTodo = e => {
         e.preventDefault();
@@ -17,8 +18,13 @@ class Todos extends React.Component {
         }
     }
     handleChanges = e => this.setState({ todoValue: e.target.value });
+    toggleFilters = e => {
+        e.preventDefault();
+        this.setState({ filter: !this.state.filter });
+    }
    
     render(props) {
+        console.log(this.state.filter);
         return (
             <div className='todos'>
                 <header>
@@ -28,6 +34,14 @@ class Todos extends React.Component {
                         <button className='btn'>Add</button>
                     </form>
                 </header>
+
+                <div className="filters">
+                    <button className='btn' onClick={this.toggleFilters}>Filter</button>
+                    {this.state.filter &&  <button className="btn choose-filter">ALL</button>}
+                    {this.state.filter && <button className="btn choose-filter">COMPLETED</button>}
+                    {this.state.filter &&  <button className="btn choose-filter">ACTIVE</button> }
+                </div>
+                
                 <div className='todo-list'>
                     {this.props.todos.map((todo) => (
                         <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />

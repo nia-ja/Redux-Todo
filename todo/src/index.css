@@ -121,7 +121,6 @@ form input:focus {
   font-family: 'Farsan', cursive;
   opacity: 0;
   animation: TodoOn 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
-  cursor: pointer;
 }
 .todo-content {
   display: flex;
@@ -134,10 +133,12 @@ form input:focus {
 }
 .todo-bullet {
   margin-right: 15px;
+  cursor: pointer;
 }
 .todo-bullet-completed {
   margin-right: 15px;
   color: rgb(110, 110, 110);
+  cursor: pointer;
 }
 .todo-text {
   text-decoration: none;

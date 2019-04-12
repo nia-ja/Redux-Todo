@@ -127,7 +127,7 @@ form input:focus {
   color: crimson;
 }
 /*Clear completed button*/
-.todos button {
+.todos .btn.clear {
   margin: 30px auto 0 auto;
 }
 .btn-hidden {

@@ -33,7 +33,7 @@ class Todos extends React.Component {
                         <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />
                     ))}
                 </div>
-                <button className={this.props.todos.length > 0 ? 'btn' : 'btn-hidden'} onClick={() => this.props.clearCompleted()}>Clear completed</button>
+                <button className={this.props.todos.length > 0 ? 'btn clear' : 'btn-hidden'} onClick={() => this.props.clearCompleted()}>Clear completed</button>
             </div>
         );
     }

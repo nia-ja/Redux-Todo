@@ -4,7 +4,8 @@ const Todo = props => {
     return(
         <div className='todo'>
             <div className='todo-content' onClick={props.onClick}>
-                <h4 className={props.todo.completed ? 'todo-bullet-completed' : 'todo-bullet'}>※</h4>
+                {!props.todo.completed && <h4 className='todo-bullet'>※</h4>}
+                {props.todo.completed && <h4 className='todo-bullet-completed'>✔︎</h4>}
                 <h4 className={props.todo.completed ? 'todo-text-completed' : 'todo-text'}>{props.todo.value}</h4>
             </div>
             <p onClick={props.deleteTodo}>✘</p>

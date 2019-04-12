@@ -97,11 +97,18 @@ form input:focus {
   filter: blur();
   margin-bottom: 10px;
   font-family: 'Farsan', cursive;
+  opacity: 0;
+  animation: Hero 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
 }
 .todo-content {
   display: flex;
   width: 90%;
   align-items: center;
+  cursor: pointer;
+}
+.todo-content:hover {
+  cursor: pointer;
 }
 .todo-bullet {
   margin-right: 15px;
@@ -113,14 +120,17 @@ form input:focus {
 .todo-text {
   text-decoration: none;
   color: white; 
+  cursor: pointer;
 }
 .todo-text-completed {
   color: rgb(110, 110, 110);
   text-decoration: line-through; 
+  cursor: pointer;
 }
 .todo-text:hover {
   cursor: pointer;
   color: rgb(173, 173, 173);
+  cursor: pointer;
 }
 .todo p:hover {
   cursor: pointer;
@@ -155,5 +165,16 @@ form input:focus {
 @media (max-width: 650px) {
   .todos .todo-list {
     width: 80%;
+  }
+}
+
+@keyframes Hero {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

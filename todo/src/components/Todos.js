@@ -24,7 +24,7 @@ class Todos extends React.Component {
                 <header>
                     <h1>REDUX <span>TODO</span></h1>
                     <form onSubmit={this.addTodo}>
-                        <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo'/>
+                        <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo' required />
                         <button className='btn'>Add</button>
                     </form>
                 </header>

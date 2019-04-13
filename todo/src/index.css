@@ -201,8 +201,13 @@ form input:focus {
     flex-direction: column;
     width: 80%;
   }
+  .filters-options {
+    flex-direction: column;
+  }
+  .choose-filter {
+    margin-bottom: 15px;
+  }
   .filters > .btn, .filters-no-todo > .btn {
-    /* width: 30%; */
     margin-bottom: 15px;
   }
 }

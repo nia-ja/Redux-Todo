@@ -39,10 +39,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(black 15%, transparent 16%) 0 0,
-    radial-gradient(black 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    radial-gradient(rgb(80, 124, 115) 15%, transparent 16%) 0 0,
+    radial-gradient(rgb(80, 124, 115) 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(80, 124, 115,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(80, 124, 115,.1) 15%, transparent 20%) 8px 9px;
   background-color:lightgray;
   background-size:16px 16px;
 }
@@ -79,10 +79,10 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-.light {
+.header-light {
   background-color:lightgray;
 }
-.bright {
+.header-bright {
   background-color: yellowgreen;
 }
 
@@ -133,20 +133,30 @@ form input:focus {
   outline: none;
 }
 
-/*FILTERS*/
-.menu {
-  width: 50%;
-  margin: 15px auto;
+.main-window {
+  width: 100%;
   display: flex;
 }
-.filters-no-todo {
-  display: none;
+
+/* SIDE MENU */
+.side-menu {
+  width: 20%;
+  margin: 15px 0 15px 2%;
 }
+
+/*FILTERS*/
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .menu .btn {
-  margin-right: 15px;
+  margin: 10px 1%;
 }
 .menu-options {
   display: flex;
+  flex-direction: column;
 }
 .choose-option {
   background: rgb(110, 110, 110);
@@ -155,9 +165,8 @@ form input:focus {
 
 /*TODOS styling*/
 .todos .todo-list {
-  width: 50%;
-  margin: 30px auto 0 auto;
-
+  margin: 25px auto;
+  width: 70%;
 }
 .todo {
   color: white;
@@ -185,13 +194,13 @@ form input:focus {
 .todo-bullet {
   line-height: 36px;
   width: 23px;
-  margin-right: 15px;
+  margin-right: 2%;
   cursor: pointer;
 }
 .todo-bullet-completed {
   line-height: 36px;
   width: 23px;
-  margin-right: 15px;
+  margin-right: 2%;
   color: rgb(110, 110, 110);
   cursor: pointer;
 }
@@ -222,14 +231,7 @@ form input:focus {
   display: none;
 }
 
-@media (max-width: 1000px) {
-  .todos .todo-list {
-    width: 70%;
-  }
-  .menu {
-    width: 70%;
-  }
-}
+/* MEDIA */
 @media (max-width: 800px) {
   header {
     flex-direction: column;
@@ -243,25 +245,31 @@ form input:focus {
     width: 100%;
   }
 }
-@media (max-width: 650px) {
-  .todos .todo-list {
-    width: 80%;
-  }
-  .menu {
+@media (max-width: 750px) {
+  .main-window {
     flex-direction: column;
+  }
+  .side-menu {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .menu, .todos .todo-list {
     width: 80%;
+    margin: 10px auto;
+  }
+  .menu .btn {
+    margin: 10px auto;
+    width: 100%;
   }
   .menu-options {
-    flex-direction: column;
+    width: 100%;
   }
-  .choose-option {
-    margin-bottom: 15px;
-  }
-  .menu > .btn {
-    margin-bottom: 15px;
+  .menu .menu-options .choose-option {
+    width: 80%;
   }
 }
 
+/* ANIMATION */
 @keyframes TodoOn {
   0% {
     opacity: 0;

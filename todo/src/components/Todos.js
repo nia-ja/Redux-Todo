@@ -28,14 +28,14 @@ class Todos extends React.Component {
             this.setState({ colorMenu: !this.state.colorMenu });
         }
     }
-    onClickHandler = (value) => {
-        console.log(value);
-    }
+    // onClickHandler = (value) => {
+    //     console.log(value);
+    // }
    
     render(props) {
         return (
             <div className='todos'>
-                <header className={this.props.color}>
+                <header className={`header-${this.props.color}`}>
                     <h1>REDUX <span>TODO</span></h1>
                     <form onSubmit={this.addTodo}>
                         <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo' required />
@@ -43,32 +43,38 @@ class Todos extends React.Component {
                     </form>
                 </header>
 
-                <div className={this.props.todos.length > 0 ? 'menu' : 'filters-no-todo'}>
-                    <button className='btn' onClick={() => this.toggleButtons('filter')}>Filter</button>
-                    { this.state.filterMenu && 
-                        <div className='menu-options'>
-                            <button className="btn choose-option" onClick={() => this.onClickHandler('all')}>ALL</button>
-                            <button className="btn choose-option" onClick={() => this.onClickHandler('completed')}>COMPLETED</button>
-                            <button className="btn choose-option" onClick={() => this.onClickHandler('active')}>ACTIVE</button>
+                <div className='main-window'>
+                    <div className='side-menu'>
+                        <div className='menu'>
+                            <button className='btn' onClick={() => this.toggleButtons('filter')}>Filter</button>
+                            { this.state.filterMenu && 
+                                <div className='menu-options'>
+                                    <button className="btn choose-option" onClick={() => this.onClickHandler('all')}>ALL</button>
+                                    <button className="btn choose-option" onClick={() => this.onClickHandler('completed')}>COMPLETED</button>
+                                    <button className="btn choose-option" onClick={() => this.onClickHandler('active')}>ACTIVE</button>
+                                </div>
+                            }
                         </div>
-                    }
-                </div>
-                <div className='color-mode menu'>
-                    <button className='btn' onClick={() => this.toggleButtons('color')}>Color mode</button>
-                    { this.state.colorMenu && 
-                        <div className='menu-options'>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('dark')}>DARK</button>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('light')}>LIGHT</button>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('bright')}>BRIGHT</button>
-                        </div>}
-                </div>
+                        
+                        <div className='color-mode menu'>
+                            <button className='btn' onClick={() => this.toggleButtons('color')}>Color mode</button>
+                            { this.state.colorMenu && 
+                                <div className='menu-options'>
+                                    <button className="btn choose-option" onClick={() => this.props.changeColor('dark')}>DARK</button>
+                                    <button className="btn choose-option" onClick={() => this.props.changeColor('light')}>LIGHT</button>
+                                    <button className="btn choose-option" onClick={() => this.props.changeColor('bright')}>BRIGHT</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 
-                <div className='todo-list'>
-                    {this.props.todos.map((todo) => (
-                        <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />
-                    ))}
+                    <div className='todo-list'>
+                        {this.props.todos.map((todo) => (
+                            <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />
+                        ))}
+                        <button className={this.props.todos.length > 0 ? 'btn clear' : 'btn-hidden'} onClick={() => this.props.clearCompleted()}>Clear completed</button>
+                    </div>
                 </div>
-                <button className={this.props.todos.length > 0 ? 'btn clear' : 'btn-hidden'} onClick={() => this.props.clearCompleted()}>Clear completed</button>
             </div>
         );
     }

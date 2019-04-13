@@ -10,7 +10,6 @@ class App extends Component {
     this.setState({color: colorName});
   }
   render() { 
-    console.log(this.state.color);
     return(
       <div className="App">
         {this.state.color === 'light' &&

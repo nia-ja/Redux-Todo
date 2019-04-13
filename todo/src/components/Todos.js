@@ -22,7 +22,6 @@ class Todos extends React.Component {
     handleChanges = e => this.setState({ todoValue: e.target.value });
 
     toggleButtons = type => {
-        console.log(type);
         if(type === 'filter'){
             this.setState({ filterMenu: !this.state.filterMenu });
         } else if(type === 'color') {
@@ -36,7 +35,7 @@ class Todos extends React.Component {
     render(props) {
         return (
             <div className='todos'>
-                <header>
+                <header className={this.props.color}>
                     <h1>REDUX <span>TODO</span></h1>
                     <form onSubmit={this.addTodo}>
                         <input onChange={this.handleChanges} value={this.state.todoValue} placeholder='Add todo' required />
@@ -58,9 +57,9 @@ class Todos extends React.Component {
                     <button className='btn' onClick={() => this.toggleButtons('color')}>Color mode</button>
                     { this.state.colorMenu && 
                         <div className='menu-options'>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('#282828')}>DARK</button>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('white')}>LIGHT</button>
-                            <button className="btn choose-option" onClick={() => this.props.changeColor('yellow')}>BRIGHT</button>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('dark')}>DARK</button>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('light')}>LIGHT</button>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('bright')}>BRIGHT</button>
                         </div>}
                 </div>
                 

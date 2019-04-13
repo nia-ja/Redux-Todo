@@ -3,8 +3,14 @@
   padding: 0;
 }
 
-/*BACKGROUND*/
+/*BACKGROUND MODE*/
 .App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+.color-dark {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -22,6 +28,44 @@
   background-color:#282828;
   background-size:16px 16px;
 }
+.color-light {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:lightgray;
+  background-size:16px 16px;
+}
+
+.color-bright {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color: yellowgreen;
+  background-size:16px 16px;
+}
+
 /*MAIN CONTAINER*/
 .todos {
   width: 100%;
@@ -34,6 +78,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.light {
+  background-color:lightgray;
+}
+.bright {
+  background-color: yellowgreen;
 }
 
 /*NAME styling*/

@@ -4,9 +4,11 @@
 }
 
 /*BACKGROUND*/
-body {
+.App {
   margin: 0;
   padding: 0;
+  height: 100%;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -82,23 +84,21 @@ form input:focus {
 }
 
 /*FILTERS*/
-.filters {
+.menu {
   width: 50%;
   margin: 15px auto;
   display: flex;
 }
 .filters-no-todo {
-  width: 90%;
-  margin: 15px auto;
-  display: flex;
+  display: none;
 }
-.filters .btn, .filters-no-todo .btn {
+.menu .btn {
   margin-right: 15px;
 }
-.filters-options {
+.menu-options {
   display: flex;
 }
-.choose-filter {
+.choose-option {
   background: rgb(110, 110, 110);
   color: white;
 }
@@ -176,7 +176,7 @@ form input:focus {
   .todos .todo-list {
     width: 70%;
   }
-  .filters {
+  .menu {
     width: 70%;
   }
 }
@@ -197,17 +197,17 @@ form input:focus {
   .todos .todo-list {
     width: 80%;
   }
-  .filters, .filters-no-todo {
+  .menu {
     flex-direction: column;
     width: 80%;
   }
-  .filters-options {
+  .menu-options {
     flex-direction: column;
   }
-  .choose-filter {
+  .choose-option {
     margin-bottom: 15px;
   }
-  .filters > .btn, .filters-no-todo > .btn {
+  .menu > .btn {
     margin-bottom: 15px;
   }
 }

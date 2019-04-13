@@ -8,7 +8,8 @@ import Todo from './Todo';
 class Todos extends React.Component {
     state = {
         todoValue: '',
-        filter: false,
+        filterMenu: false,
+        colorMenu: false,
         todos: []
     };
     addTodo = e => {
@@ -19,9 +20,14 @@ class Todos extends React.Component {
         }
     }
     handleChanges = e => this.setState({ todoValue: e.target.value });
-    toggleFilters = e => {
-        e.preventDefault();
-        this.setState({ filter: !this.state.filter });
+
+    toggleButtons = type => {
+        console.log(type);
+        if(type === 'filter'){
+            this.setState({ filterMenu: !this.state.filterMenu });
+        } else if(type === 'color') {
+            this.setState({ colorMenu: !this.state.colorMenu });
+        }
     }
     onClickHandler = (value) => {
         console.log(value);
@@ -38,15 +44,24 @@ class Todos extends React.Component {
                     </form>
                 </header>
 
-                <div className={this.props.todos.length > 0 ? 'filters' : 'filters-no-todo'}>
-                    <button className='btn' onClick={this.toggleFilters}>Filter</button>
-                    { this.state.filter && 
-                        <div className='filters-options'>
-                            <button className="btn choose-filter" onClick={() => this.onClickHandler('all')}>ALL</button>
-                            <button className="btn choose-filter" onClick={() => this.onClickHandler('completed')}>COMPLETED</button>
-                            <button className="btn choose-filter" onClick={() => this.onClickHandler('active')}>ACTIVE</button>
+                <div className={this.props.todos.length > 0 ? 'menu' : 'filters-no-todo'}>
+                    <button className='btn' onClick={() => this.toggleButtons('filter')}>Filter</button>
+                    { this.state.filterMenu && 
+                        <div className='menu-options'>
+                            <button className="btn choose-option" onClick={() => this.onClickHandler('all')}>ALL</button>
+                            <button className="btn choose-option" onClick={() => this.onClickHandler('completed')}>COMPLETED</button>
+                            <button className="btn choose-option" onClick={() => this.onClickHandler('active')}>ACTIVE</button>
                         </div>
                     }
+                </div>
+                <div className='color-mode menu'>
+                    <button className='btn' onClick={() => this.toggleButtons('color')}>Color mode</button>
+                    { this.state.colorMenu && 
+                        <div className='menu-options'>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('#282828')}>DARK</button>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('white')}>LIGHT</button>
+                            <button className="btn choose-option" onClick={() => this.props.changeColor('yellow')}>BRIGHT</button>
+                        </div>}
                 </div>
                 
                 <div className='todo-list'>

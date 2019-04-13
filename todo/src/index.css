@@ -133,10 +133,14 @@ form input:focus {
   cursor: pointer;
 }
 .todo-bullet {
+  line-height: 36px;
+  width: 23px;
   margin-right: 15px;
   cursor: pointer;
 }
 .todo-bullet-completed {
+  line-height: 36px;
+  width: 23px;
   margin-right: 15px;
   color: rgb(110, 110, 110);
   cursor: pointer;
@@ -193,12 +197,12 @@ form input:focus {
   .todos .todo-list {
     width: 80%;
   }
-  .filters {
+  .filters, .filters-no-todo {
     flex-direction: column;
     width: 80%;
   }
-  .filters > .btn {
-    width: 25%;
+  .filters > .btn, .filters-no-todo > .btn {
+    /* width: 30%; */
     margin-bottom: 15px;
   }
 }

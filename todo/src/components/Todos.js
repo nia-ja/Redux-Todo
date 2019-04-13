@@ -69,6 +69,7 @@ class Todos extends React.Component {
                     </div>
                 
                     <div className='todo-list'>
+                        {this.props.todos.length === 0 && <p className='no-todo-text'>Your have NOTHING to do...</p>}
                         {this.props.todos.map((todo) => (
                             <Todo todo={todo} key={todo.id} onClick={() => this.props.toggleTodo(todo.id)} deleteTodo={() => this.props.deleteTodo(todo.id)} />
                         ))}

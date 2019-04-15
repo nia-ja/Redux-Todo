@@ -39,11 +39,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(rgb(80, 124, 115) 15%, transparent 16%) 0 0,
-    radial-gradient(rgb(80, 124, 115) 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(80, 124, 115,.1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(80, 124, 115,.1) 15%, transparent 20%) 8px 9px;
-  background-color:lightgray;
+    radial-gradient(rgb(160, 206, 201) 15%, transparent 16%) 0 0,
+    radial-gradient(rgb(160, 206, 201) 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(160, 206, 201, .1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(160, 206, 201, .1) 15%, transparent 20%) 8px 9px;
+  background-color: rgb(219, 250, 247);
   background-size:16px 16px;
 }
 
@@ -62,7 +62,7 @@
     radial-gradient(black 15%, transparent 16%) 8px 8px,
     radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
     radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-  background-color: yellowgreen;
+  background-color: #EF4700;
   background-size:16px 16px;
 }
 
@@ -78,22 +78,27 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 .header-light {
-  background-color:lightgray;
+  background-color:rgb(219, 250, 247);
+  color: rgb(70, 70, 70);
 }
 .header-bright {
-  background-color: yellowgreen;
+  background-color: #EF4700;
+  color: white;
 }
 
 /*NAME styling*/
 header h1 {
-  color: white;
   font-size: 50px;
   font-family: 'Plaster', cursive;
 }
 header h1 span {
   color: crimson;
+}
+.header-light h1 span {
+  color: rgb(0, 126, 126);
 }
 
 /*FORM styling*/
@@ -114,7 +119,7 @@ form input {
 form input:focus {
   outline: none;
 }
-.btn {
+button {
   display: block;
   padding: 7px 20px;
   font-size: 18px;
@@ -125,11 +130,21 @@ form input:focus {
   font-weight: bold;
   cursor: pointer;
 }
-.btn:hover {
+.btn-light {
+  background: rgb(0, 126, 126);
+  color: white;
+}
+.btn-light:hover {
+  color: rgb(0, 126, 126);
+}
+/* .btn-bright {
+
+} */
+button:hover {
   background: white;
   color: crimson;
 }
-.btn:focus {
+button:focus {
   outline: none;
 }
 
@@ -151,7 +166,7 @@ form input:focus {
   flex-direction: column;
 }
 
-.menu .btn {
+.menu button {
   margin: 10px 1%;
 }
 .menu-options {
@@ -167,19 +182,20 @@ form input:focus {
 .todos .todo-list {
   margin: 25px auto;
   width: 70%;
+  color: white;
+}
+.todos .todo-list.light {
+  color: rgb(70, 70, 70);
 }
 .todo-list .no-todo-text {
   width: 100%;
   font-size: 40px;
   margin-top: 30px;
-  /* padding-left: 5%; */
   text-align: center;
   vertical-align: center;
-  color: white;
   font-family: 'Farsan', cursive;
 }
 .todo {
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,6 +207,9 @@ form input:focus {
   font-family: 'Farsan', cursive;
   opacity: 0;
   animation: TodoOn 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.todo.light {
+  background:rgba(0, 126, 126, .1);
 }
 .todo-content {
   display: flex;
@@ -216,7 +235,6 @@ form input:focus {
 }
 .todo-text {
   text-decoration: none;
-  color: white; 
   cursor: pointer;
 }
 .todo-text-completed {
@@ -224,17 +242,23 @@ form input:focus {
   text-decoration: line-through; 
   cursor: pointer;
 }
+.todo-bullet-completed.light, .todo-text-completed.light {
+  color: rgb(199, 199, 199);
+}
 .todo-text:hover {
   cursor: pointer;
   color: rgb(173, 173, 173);
   cursor: pointer;
+}
+.todo-text.light:hover {
+  color: rgb(0, 126, 126);
 }
 .todo p:hover {
   cursor: pointer;
   color: crimson;
 }
 /*Clear completed button*/
-.todos .btn.clear {
+.todos button.clear {
   margin: 30px auto 0 auto;
 }
 .btn-hidden {
@@ -267,7 +291,7 @@ form input:focus {
     width: 80%;
     margin: 10px auto;
   }
-  .menu .btn {
+  .menu button {
     margin: 10px auto;
     width: 100%;
   }

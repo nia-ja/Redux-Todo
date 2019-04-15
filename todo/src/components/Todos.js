@@ -62,7 +62,7 @@ class Todos extends React.Component {
                                 <div className='menu-options'>
                                     <button className={`btn-${this.props.color} choose-option`} onClick={() => this.props.changeColor('dark')}>DARK</button>
                                     <button className={`btn-${this.props.color} choose-option`} onClick={() => this.props.changeColor('light')}>LIGHT</button>
-                                    <button className={`btn-${this.props.color} choose-option`} onClick={() => this.props.changeColor('bright')}>BRIGHT</button>
+                                    {/* <button className={`btn-${this.props.color} choose-option`} onClick={() => this.props.changeColor('bright')}>BRIGHT</button> */}
                                 </div>
                             }
                         </div>

@@ -22,7 +22,7 @@ class App extends Component {
             <Todos changeColor={this.changeColor} color={this.state.color} />
           </div>
         }
-        { (this.state.color !== 'light' || 'bright') &&
+        { (this.state.color !== 'light' && this.state.color !== 'bright') &&
           <div className="color-dark">
             <Todos changeColor={this.changeColor} color={this.state.color} />
           </div>

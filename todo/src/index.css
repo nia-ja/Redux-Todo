@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*BACKGROUND MODE*/
+.App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+.color-dark {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+.color-light {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(rgb(160, 206, 201) 15%, transparent 16%) 0 0,
+    radial-gradient(rgb(160, 206, 201) 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(160, 206, 201, .1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(160, 206, 201, .1) 15%, transparent 20%) 8px 9px;
+  background-color: rgb(219, 250, 247);
+  background-size:16px 16px;
+}
+
+/*MAIN CONTAINER*/
+.todos {
+  width: 100%;
+  padding-bottom: 50px;
+}
+/*HEADER styling*/
+header {
+  padding: 20px 4%;
+  background: #282828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.header-light {
+  background-color:rgb(219, 250, 247);
+  color: rgb(70, 70, 70);
+}
+
+/*NAME styling*/
+header h1 {
+  font-size: 50px;
+  font-family: 'Plaster', cursive;
+}
+header h1 span {
+  color: crimson;
+}
+.header-light h1 span {
+  color: rgb(0, 126, 126);
+}
+
+/*FORM styling*/
+header form {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form input {
+  width: 70%;
+  padding: 7px;
+  margin-right: 5%;
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+}
+form input:focus {
+  outline: none;
+}
+button {
+  display: block;
+  padding: 7px 20px;
+  font-size: 18px;
+  background: crimson;
+  color: #282828;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-light {
+  background: rgb(0, 126, 126);
+  color: white;
+}
+.btn-light:hover {
+  color: rgb(0, 126, 126);
+}
+
+button:hover {
+  background: white;
+  color: crimson;
+}
+button:focus {
+  outline: none;
+}
+
+.main-window {
+  width: 100%;
+  display: flex;
+}
+
+/* SIDE MENU */
+.side-menu {
+  width: 20%;
+  margin: 15px 0 15px 2%;
+}
+
+/*FILTERS*/
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu button {
+  margin: 10px 1%;
+}
+.menu-options {
+  display: flex;
+  flex-direction: column;
+}
+.choose-option {
+  background: rgb(110, 110, 110);
+  color: white;
+}
+
+/*TODOS styling*/
+.todos .todo-list {
+  margin: 25px auto;
+  width: 70%;
+  color: white;
+}
+.todos .todo-list.light {
+  color: rgb(70, 70, 70);
+}
+.todo-list .no-todo-text {
+  width: 100%;
+  font-size: 40px;
+  margin-top: 30px;
+  text-align: center;
+  vertical-align: center;
+  font-family: 'Farsan', cursive;
+}
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 26px;
+  background: rgba(255,255,255, .1);
+  filter: blur();
+  margin-bottom: 10px;
+  font-family: 'Farsan', cursive;
+  opacity: 0;
+  animation: TodoOn 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.todo.light {
+  background:rgba(0, 126, 126, .1);
+}
+.todo-content {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  cursor: pointer;
+}
+.todo-content:hover {
+  cursor: pointer;
+}
+.todo-bullet {
+  line-height: 36px;
+  width: 23px;
+  margin-right: 2%;
+  cursor: pointer;
+}
+.todo-bullet-completed {
+  line-height: 36px;
+  width: 23px;
+  margin-right: 2%;
+  color: rgb(110, 110, 110);
+  cursor: pointer;
+}
+.todo-text {
+  text-decoration: none;
+  cursor: pointer;
+}
+.todo-text-completed {
+  color: rgb(110, 110, 110);
+  text-decoration: line-through; 
+  cursor: pointer;
+}
+.todo-bullet-completed.light, .todo-text-completed.light {
+  color: rgb(199, 199, 199);
+}
+.todo-text:hover {
+  cursor: pointer;
+  color: rgb(173, 173, 173);
+  cursor: pointer;
+}
+.todo-text.light:hover {
+  color: rgb(0, 126, 126);
+}
+.todo p:hover {
+  cursor: pointer;
+  color: crimson;
+}
+/*Clear completed button*/
+.todos button.clear {
+  margin: 30px auto 0 auto;
+}
+.btn-hidden {
+  display: none;
+}
+
+/* MEDIA */
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  header h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  header form, h1 {
+    width: 100%;
+  }
+}
+@media (max-width: 750px) {
+  .main-window {
+    flex-direction: column;
+  }
+  .side-menu {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .menu, .todos .todo-list {
+    width: 80%;
+    margin: 10px auto;
+  }
+  .menu button {
+    margin: 10px auto;
+    width: 100%;
+  }
+  .menu-options {
+    width: 100%;
+  }
+  .menu .menu-options .choose-option {
+    width: 80%;
+  }
+}
+
+/* ANIMATION */
+@keyframes TodoOn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
